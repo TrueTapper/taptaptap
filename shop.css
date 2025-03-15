@@ -64,14 +64,37 @@ a {
 }
 
 /* --- Карточки товаров --- */
+/* --- Контейнер магазина --- */
+.shop-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Добавляем, чтобы кнопки скролла работали */
+    padding: 20px;
+}
+
+/* --- Карточки товаров --- */
+.shop-items {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    width: 80%;
+    max-width: 800px;
+    padding: 10px;
+    gap: 15px;
+}
+
 .shop-item {
-    flex: 0 0 auto;
-    width: 200px;
-    background-color: yellow;
+    background: yellow;
+    padding: 20px;
+    margin: 10px;
+    width: 250px;
     border-radius: 10px;
-    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s;
 }
 
 .shop-item:hover {
@@ -94,11 +117,30 @@ a {
 }
 
 .left {
-    left: 10px;
+    left: 0px; /* Можно увеличить, если кнопка прилипает к краю */
 }
 
 .right {
-    right: 10px;
+    right: 0px; /* Можно увеличить, если кнопка прилипает к краю */
+}
+
+/* --- Верхний блок с бонусами --- */
+.bonus-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+}
+
+.bonus-button {
+    background-color: yellow;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    width: 250px;
+    text-align: center;
 }
 
 /* --- Нижний рекламный блок --- */
