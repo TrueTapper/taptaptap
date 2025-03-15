@@ -42,21 +42,22 @@ a {
 
 /* --- Магазинный контейнер --- */
 /* --- Увеличенный отступ между блоками --- */
+/* --- Отступы между секциями --- */
 .shop-container {
-    margin-top: 40px; /* Увеличиваем расстояние между бонусными блоками и скроллом */
+    margin-top: 50px; /* Увеличил отступ сверху */
 }
 
-/* --- Настройки размеров блоков товаров --- */
+/* --- Размеры карточек товаров --- */
 .shop-item {
-    width: 180px;  /* Сделали уже */
-    height: 200px; /* Сделали выше */
+    width: 160px;  /* Уже, чтобы помещалось 2 на мобилке */
+    height: 220px; /* Сделал выше, чтобы текст не ломался */
     background: yellow;
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     flex-shrink: 0;
-    overflow: hidden; /* Обрезает лишнее */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -64,7 +65,7 @@ a {
 
 /* --- Обрезка длинных заголовков --- */
 .shop-item h3 {
-    font-size: 16px;
+    font-size: 14px;
     max-width: 90%;
     margin: 0 auto;
     text-overflow: ellipsis;
@@ -77,12 +78,20 @@ a {
 
 /* --- Обрезка длинных описаний товаров --- */
 .shop-item p {
-    font-size: 14px;
+    font-size: 13px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 90%;
     margin: 5px auto;
+}
+
+/* --- Медиа-запрос для мобильных устройств (ширина < 600px) --- */
+@media (max-width: 600px) {
+    .shop-item {
+        width: 140px; /* Еще уже для мобильных, чтобы влезало 2 блока */
+        height: 230px; /* Чуть выше, чтобы текст не ломался */
+    }
 }
 
 /* --- Кнопки скролла --- */
