@@ -79,23 +79,17 @@ button {
     justify-content: center;
 }
 document.addEventListener("DOMContentLoaded", function () {
-    const storeWrapper = document.querySelector(".store-wrapper");
-    const leftButton = document.querySelector(".left-button");
-    const rightButton = document.querySelector(".right-button");
+    const shopItems = document.getElementById("shop-items");
+    const scrollAmount = 250; // Прокрутка на один шаг
 
-    let scrollAmount = 0;
-    const scrollStep = 320; // Размер прокрутки на один клик
+    window.scrollLeft = function () {
+        shopItems.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    };
 
-    rightButton.addEventListener("click", function () {
-        scrollAmount += scrollStep;
-        storeWrapper.style.transform = `translateX(-${scrollAmount}px)`;
-    });
+    window.scrollRight = function () {
+        shopItems.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    };
 
-    leftButton.addEventListener("click", function () {
-        if (scrollAmount > 0) {
-            scrollAmount -= scrollStep;
-            storeWrapper.style.transform = `translateX(-${scrollAmount}px)`;
-        }
     });
 });
 
