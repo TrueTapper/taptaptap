@@ -17,26 +17,55 @@ header {
     padding: 20px;
 }
 
-.store-container {
+/* --- Блок с бонусными очками --- */
+.bonus-container {
     display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px auto;
+}
+
+.bonus-item {
+    background-color: yellow;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* --- Магазин (горизонтальный скролл) --- */
+.shop-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.scroll-btn {
+    background-color: gray;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+}
+
+.shop-items {
+    display: flex;
+    flex-wrap: nowrap;
     overflow-x: auto;
     scroll-behavior: smooth;
     white-space: nowrap;
-    width: 100%;
+    width: 80%;
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
 }
 
-.store-wrapper {
-    display: flex;
-    flex-wrap: nowrap;
-    transition: transform 0.3s ease-in-out;
-}
-
-.store-item {
+.shop-item {
     flex: 0 0 auto;
-    width: 250px;
+    width: 200px;
     background-color: yellow;
     border-radius: 10px;
     padding: 15px;
@@ -44,27 +73,11 @@ header {
     text-align: center;
 }
 
-.left-button, .right-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: gray;
+.buy-btn {
+    background-color: blue;
     color: white;
     border: none;
     padding: 10px;
     cursor: pointer;
+    border-radius: 5px;
 }
-
-.left-button {
-    left: 0;
-}
-
-.right-button {
-    right: 0;
-}
-
-
-.right-button {
-    right: 0;
-}
-
