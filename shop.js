@@ -79,18 +79,16 @@ button {
     justify-content: center;
 }
 document.addEventListener("DOMContentLoaded", function () {
-    const shopItems = document.querySelector(".shop-items"); // Используем правильный селектор
-    const leftButton = document.querySelector(".left");
-    const rightButton = document.querySelector(".right");
+    const shopItems = document.getElementById("shop-items");
     const scrollAmount = 300; // Шаг скролла
 
-    leftButton.addEventListener("click", function () {
+    window.scrollLeft = function () {
         shopItems.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-    });
+    };
 
-    rightButton.addEventListener("click", function () {
+    window.scrollRight = function () {
         shopItems.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    });
+    };
 });
 
 
