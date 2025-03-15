@@ -82,11 +82,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const shopItems = document.getElementById("shop-items");
     const scrollAmount = 250; // Прокрутка на один шаг
 
-    window.scrollLeft = function () {
+    document.querySelector(".left").addEventListener("click", function () {
         shopItems.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-    };
+    });
 
-    window.scrollRight = function () {
+    document.querySelector(".right").addEventListener("click", function () {
         shopItems.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    };
+    });
 });
+
