@@ -1,3 +1,4 @@
+/* --- Общие стили --- */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,6 +7,7 @@ body {
     text-align: center;
 }
 
+/* --- Шапка --- */
 header {
     background-color: yellow;
     padding: 15px;
@@ -13,37 +15,42 @@ header {
     font-weight: bold;
 }
 
-.container {
-    padding: 20px;
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: purple;
 }
 
-/* --- Блок с бонусными очками --- */
+/* --- Верхние блоки с бонусами --- */
 .bonus-container {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin: 20px auto;
+    padding: 15px;
 }
 
-.bonus-item {
+.bonus-button {
     background-color: yellow;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 10px;
+    border-radius: 10px;
     font-weight: bold;
+    border: none;
     cursor: pointer;
+    width: 250px;  /* Ограничиваем ширину */
+    text-align: center;
 }
 
-/* --- Магазин (горизонтальный скролл) --- */
-/* Исправляем магазинный блок */
+/* --- Магазинный контейнер --- */
 .shop-container {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 20px;
     position: relative;
+    overflow: hidden;
 }
 
-/* Делаем горизонтальный скролл */
+/* --- Горизонтальный скролл --- */
 .shop-items {
     display: flex;
     flex-wrap: nowrap;
@@ -52,22 +59,26 @@ header {
     white-space: nowrap;
     width: 80%;
     max-width: 800px;
-    margin: 0 auto;
     padding: 10px;
+    gap: 15px;
 }
 
-/* Исправляем отображение блоков */
+/* --- Карточки товаров --- */
 .shop-item {
-    flex: 0 0 auto; /* Отключаем сжатие */
+    flex: 0 0 auto;
     width: 200px;
     background-color: yellow;
     border-radius: 10px;
     padding: 15px;
-    margin: 10px;
     text-align: center;
+    transition: transform 0.3s ease;
 }
 
-/* Кнопки для прокрутки */
+.shop-item:hover {
+    transform: scale(1.05);
+}
+
+/* --- Кнопки скролла --- */
 .scroll-btn {
     background-color: gray;
     color: white;
@@ -79,6 +90,7 @@ header {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 10;
 }
 
 .left {
@@ -89,3 +101,19 @@ header {
     right: 10px;
 }
 
+/* --- Нижний рекламный блок --- */
+.ad-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.ad-block {
+    background-color: yellow;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 250px;
+    text-align: center;
+}
