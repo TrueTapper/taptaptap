@@ -1,17 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const buyButtons = document.querySelectorAll(".buy-btn");
-    const popup = document.querySelector(".popup");
+    const popup = document.getElementById("popup");
     const overlay = document.querySelector(".popup-overlay");
-    const closeButton = document.querySelector(".popup-close");
+    const closeBtn = document.querySelector(".popup-close");
+    const buyButtons = document.querySelectorAll(".buy-btn");
 
     buyButtons.forEach(button => {
         button.addEventListener("click", function () {
-            popup.style.display = "block";
+            popup.style.display = "block"; 
             overlay.style.display = "block";
         });
     });
 
-    closeButton.addEventListener("click", function () {
+    closeBtn.addEventListener("click", function () {
         popup.style.display = "none";
         overlay.style.display = "none";
     });
