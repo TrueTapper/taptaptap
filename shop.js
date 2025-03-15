@@ -78,3 +78,24 @@ button {
     align-items: center;
     justify-content: center;
 }
+document.addEventListener("DOMContentLoaded", function () {
+    const storeWrapper = document.querySelector(".store-wrapper");
+    const leftButton = document.querySelector(".left-button");
+    const rightButton = document.querySelector(".right-button");
+
+    let scrollAmount = 0;
+    const scrollStep = 320; // Размер прокрутки на один клик
+
+    rightButton.addEventListener("click", function () {
+        scrollAmount += scrollStep;
+        storeWrapper.style.transform = `translateX(-${scrollAmount}px)`;
+    });
+
+    leftButton.addEventListener("click", function () {
+        if (scrollAmount > 0) {
+            scrollAmount -= scrollStep;
+            storeWrapper.style.transform = `translateX(-${scrollAmount}px)`;
+        }
+    });
+});
+
