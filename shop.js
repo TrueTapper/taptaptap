@@ -79,7 +79,7 @@ button {
     justify-content: center;
 }
 document.addEventListener("DOMContentLoaded", function () {
-    const shopItems = document.getElementById("shop-items");
+    const shopItems = document.querySelector(".shop-items"); // Используем правильный селектор
     const leftButton = document.querySelector(".left");
     const rightButton = document.querySelector(".right");
     const scrollAmount = 300; // Шаг скролла
@@ -92,4 +92,5 @@ document.addEventListener("DOMContentLoaded", function () {
         shopItems.scrollBy({ left: scrollAmount, behavior: "smooth" });
     });
 });
+
 
