@@ -1,29 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const popup = document.getElementById("popup");
-    const closePopup = document.querySelector(".popup-close");
+    const buyButtons = document.querySelectorAll(".buy-btn");
+    const popup = document.querySelector(".popup");
+    const overlay = document.querySelector(".popup-overlay");
+    const closeButton = document.querySelector(".popup-close");
 
-    // Функция открытия попапа
-    function openPopup() {
-        popup.style.display = "flex";
-    }
-
-    // Функция закрытия попапа
-    function closePopupHandler() {
-        popup.style.display = "none";
-    }
-
-    // Закрытие по кнопке
-    closePopup.addEventListener("click", closePopupHandler);
-
-    // Закрытие по клику вне окна
-    popup.addEventListener("click", function (event) {
-        if (event.target === popup) {
-            closePopupHandler();
-        }
+    buyButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            popup.style.display = "block";
+            overlay.style.display = "block";
+        });
     });
 
-    // Вешаем обработчик на кнопки "Купить" в товарах
-    document.querySelectorAll(".buy-btn").forEach(button => {
-        button.addEventListener("click", openPopup);
+    closeButton.addEventListener("click", function () {
+        popup.style.display = "none";
+        overlay.style.display = "none";
+    });
+
+    overlay.addEventListener("click", function () {
+        popup.style.display = "none";
+        overlay.style.display = "none";
     });
 });
