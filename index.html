@@ -134,5 +134,38 @@
     </div>
 
     <footer>
-        <a href="#" class=
+        <a href="#" class="agreement">Пользовательское соглашение</a>
+    </footer>
+
+    <script>
+        let points = 0;
+        let freeTaps = 50;
+
+        // Tap counter logic
+        document.getElementById("tap-circle").addEventListener("click", function() {
+            if (freeTaps > 0) {
+                points++;
+                freeTaps--;
+                document.getElementById("points").textContent = points;
+                document.getElementById("free-taps").textContent = freeTaps;
+
+                // Check if free taps are finished
+                if (freeTaps === 0) {
+                    alert("Бесплатные таппы исчерпаны!");
+                }
+            }
+        });
+
+        // Add timer for free taps reset
+        setInterval(function() {
+            if (freeTaps < 50) {
+                freeTaps++;
+                document.getElementById("free-taps").textContent = freeTaps;
+            }
+        }, 60000); // Reset every minute (for demo)
+
+    </script>
+
+</body>
+</html>
 
