@@ -4,168 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tap App</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
-            margin: 0;
-            padding: 0;
-        }
-        
-        header {
-            background-color: #ffcc00;
-            text-align: center;
-            padding: 10px 0;
-        }
-        
-        .banner {
-            font-size: 20px;
-            text-decoration: underline;
-            color: blue;
-        }
-
-        .total-points {
-            font-size: 24px;
-            text-align: center;
-            margin: 20px 0;
-            font-weight: bold;
-        }
-
-        .circle {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            background-color: #ffcc00;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .circle:hover {
-            background-color: #ff9900;
-        }
-
-        .shop-button {
-            display: block;
-            width: 150px;
-            margin: 20px auto;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .shop-button:hover {
-            background-color: #45a049;
-        }
-
-        .ads-container {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-
-        .ad {
-            width: 30%;
-            background-color: #ffcc00;
-            padding: 10px;
-            text-align: center;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .ad:hover {
-            background-color: #ff9900;
-        }
-
-        footer {
-            text-align: center;
-            font-size: 14px;
-            margin-top: 30px;
-        }
-
-        .agreement {
-            text-decoration: underline;
-            color: blue;
-        }
-
-        .tap-count-info {
-            font-size: 14px;
-            color: grey;
-        }
-
-    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- Подключаем внешний CSS файл -->
 </head>
 <body>
-
     <header>
-        <div class="banner">
-            <a href="#">Баннер с встроенной ссылкой на другую страницу</a>
-        </div>
+        <a href="https://anotherpage.com">Баннер с встроенной ссылкой на другую страницу</a>
     </header>
 
-    <div class="total-points">
-        Очки Total: <span id="points">0</span>
-    </div>
+    <section class="total-points">
+        <p>Очки Total: 0</p>
+    </section>
 
-    <div class="circle" id="tap-circle">
-        Изображение на которое нужно тапать
-    </div>
+    <section class="tap-section">
+        <button class="tap-btn">Tap me!</button>
+        <button class="shop-btn">Магазин</button>
+    </section>
 
-    <div class="tap-count-info">
-        Бесплатные таппы в сутки: <span id="free-taps">50</span> | Таймер восстановления: <span id="timer">00:30</span>
-    </div>
-
-    <button class="shop-button">Магазин</button>
-
-    <div class="ads-container">
+    <section class="ads">
         <div class="ad">Реклама 1</div>
         <div class="ad">Реклама 2</div>
         <div class="ad">Реклама 3</div>
-    </div>
+    </section>
 
     <footer>
-        <a href="#" class="agreement">Пользовательское соглашение</a>
+        <a href="https://terms.com">Пользовательское соглашение</a>
     </footer>
-
-    <script>
-        let points = 0;
-        let freeTaps = 50;
-
-        // Tap counter logic
-        document.getElementById("tap-circle").addEventListener("click", function() {
-            if (freeTaps > 0) {
-                points++;
-                freeTaps--;
-                document.getElementById("points").textContent = points;
-                document.getElementById("free-taps").textContent = freeTaps;
-
-                // Check if free taps are finished
-                if (freeTaps === 0) {
-                    alert("Бесплатные таппы исчерпаны!");
-                }
-            }
-        });
-
-        // Add timer for free taps reset
-        setInterval(function() {
-            if (freeTaps < 50) {
-                freeTaps++;
-                document.getElementById("free-taps").textContent = freeTaps;
-            }
-        }, 60000); // Reset every minute (for demo)
-
-    </script>
-
 </body>
 </html>
+
 
