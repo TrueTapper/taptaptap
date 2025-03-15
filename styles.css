@@ -1,68 +1,62 @@
-/* Общие стили */
+/* Основные стили для страницы */
 body {
     font-family: Arial, sans-serif;
+    background-color: #e0e0e0;
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2;
 }
 
 header {
-    background-color: #f4d03f; /* Желтый цвет */
-    padding: 10px;
+    background-color: #ffcc00;
     text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2rem;
 }
 
 header a {
-    color: #005f00;
+    color: blue;
     text-decoration: none;
-    font-size: 18px;
 }
 
-.total-points {
-    text-align: center;
-    font-size: 24px;
-    margin: 20px;
-}
-
-.tap-section {
+main {
     text-align: center;
     margin: 20px;
 }
 
-.tap-btn, .shop-btn {
-    padding: 15px 30px;
-    font-size: 18px;
+button {
+    padding: 10px 20px;
     margin: 10px;
-    background-color: #f4d03f; /* Желтый цвет */
+    font-size: 1rem;
+    background-color: #28a745;
+    color: white;
     border: none;
     cursor: pointer;
 }
 
-.tap-btn:hover, .shop-btn:hover {
-    background-color: #e1c40f; /* Цвет при наведении */
+button.shop-btn {
+    background-color: #007bff;
 }
 
 .ads {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px 0;
+    margin-top: 20px;
 }
 
 .ad {
-    background-color: #f4d03f;
-    padding: 15px;
-    text-align: center;
+    background-color: #ffcc00;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
     width: 30%;
-    font-weight: bold;
 }
 
 footer {
-    text-align: center;
-    margin-top: 30px;
-    font-size: 14px;
+    margin-top: 20px;
 }
 
 footer a {
-    color: #005f00;
     text-decoration: none;
+    color: #007bff;
 }
