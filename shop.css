@@ -47,17 +47,6 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative; 
-    padding: 20px;
-    overflow: hidden; /* Ограничиваем область скролла */
-    max-width: 1000px; /* Даем четкую ширину */
-}
-
-/* --- Карточки товаров --- */
-.shop-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
     padding: 20px;
     overflow: hidden; /* Ограничиваем область скролла */
@@ -68,29 +57,12 @@ a {
 .shop-items {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: auto; /* Исправляем на auto */
+    overflow-x: auto; /* Включаем горизонтальный скролл */
     scroll-behavior: smooth;
     white-space: nowrap;
-    width: 100%;
-    max-width: 800px;
+    min-width: 100%; /* Убираем ограничение по max-width */
     padding: 10px;
     gap: 15px;
-}
-
-.shop-item {
-    background: yellow;
-    padding: 20px;
-    margin: 10px;
-    width: 250px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.2s;
-    flex-shrink: 0;
-}
-
-.shop-item:hover {
-    transform: scale(1.05);
 }
 
 /* --- Кнопки скролла --- */
@@ -115,7 +87,6 @@ a {
 .right {
     right: 10px;
 }
-
 /* --- Верхний блок с бонусами --- */
 .bonus-container {
     display: flex;
