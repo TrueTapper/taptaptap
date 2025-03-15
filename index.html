@@ -1,12 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tap App</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Подключение стилей -->
 </head>
 <body>
-    <h1>Добро пожаловать в Tap App!</h1>
-    <button onclick="alert('Нажал!')">Tap me!</button>
+    <!-- Баннер с ссылкой -->
+    <header>
+        <a href="https://yourlink.com">
+            <div class="banner">Баннер с встроенной ссылкой на другую страницу</div>
+        </a>
+    </header>
+
+    <!-- Очки Total -->
+    <div class="points">
+        <h2>Очки Total: <span id="totalPoints">0</span></h2>
+    </div>
+
+    <!-- Изображение, на которое нужно тапать -->
+    <div class="tap-area">
+        <img src="tap-image.jpg" alt="Tap me" id="tapImage">
+    </div>
+
+    <!-- Магазин -->
+    <div class="store">
+        <button>Магазин</button>
+    </div>
+
+    <!-- Рекламные блоки -->
+    <div class="ads">
+        <div class="ad">Реклама 1</div>
+        <div class="ad">Реклама 2</div>
+        <div class="ad">Реклама 3</div>
+    </div>
+
+    <!-- Пользовательское соглашение -->
+    <footer>
+        <a href="privacy-policy.html">Пользовательское соглашение</a>
+    </footer>
+
+    <script src="script.js"></script> <!-- Подключение JS -->
 </body>
 </html>
