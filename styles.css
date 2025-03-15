@@ -57,6 +57,12 @@ h2 {
     transform: scale(1.1);
 }
 
+.tap-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
 /* Магазин */
 .shop-btn {
     background-color: #007bff;
