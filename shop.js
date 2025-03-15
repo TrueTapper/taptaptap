@@ -9,3 +9,4 @@ document.addEventListener("DOMContentLoaded", function () {
     window.scrollRight = function () {
         shopItems.scrollBy({ left: scrollAmount, behavior: "smooth" });
     };
+});
