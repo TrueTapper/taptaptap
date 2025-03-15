@@ -85,10 +85,10 @@ ddocument.addEventListener("DOMContentLoaded", function () {
     const scrollAmount = 300; // Прокрутка на один шаг
 
     leftButton.addEventListener("click", function () {
-        shopItems.scrollLeft -= scrollAmount;
+        shopItems.scrollBy() -= scrollAmount;
     });
 
     rightButton.addEventListener("click", function () {
-        shopItems.scrollLeft += scrollAmount;
+        shopItems.scrollBy() += scrollAmount;
     });
 });
