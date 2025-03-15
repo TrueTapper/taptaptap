@@ -80,15 +80,13 @@ button {
 }
 document.addEventListener("DOMContentLoaded", function () {
     const shopItems = document.getElementById("shop-items");
-    const scrollAmount = 250; // Прокрутка на один шаг
+    const scrollAmount = 300; // Прокрутка на один шаг
 
     document.querySelector(".left").addEventListener("click", function () {
-        shopItems.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+        shopItems.scrollLeft -= scrollAmount;
     });
 
     document.querySelector(".right").addEventListener("click", function () {
-        shopItems.scrollBy({ left: scrollAmount, behavior: "smooth" });
+        shopItems.scrollLeft += scrollAmount;
     });
 });
-
-
