@@ -47,8 +47,9 @@ a {
     justify-content: center;
     position: relative;
     padding: 20px;
-    max-width: 80%; /* Ограничение ширины */
-    margin: 0 auto; /* Центрируем контейнер */
+    max-width: 80%;
+    margin: 0 auto;
+    overflow: hidden; /* Ограничиваем область скролла */
 }
 
 /* --- Карточки товаров --- */
@@ -85,7 +86,7 @@ a {
     cursor: pointer;
     font-size: 18px;
     height: 50px;
-    width: 50px; /* Делаем кнопки квадратными */
+    width: 50px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -93,12 +94,13 @@ a {
 }
 
 .left {
-    left: -60px; /* Сдвигаем левую кнопку левее */
+    left: -60px;
 }
 
 .right {
-    right: -60px; /* Сдвигаем правую кнопку правее */
+    right: -60px;
 }
+
 
 /* --- Верхний блок с бонусами --- */
 .bonus-container {
