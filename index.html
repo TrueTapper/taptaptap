@@ -4,44 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tap App</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Подключаем CSS -->
 </head>
 <body>
     <header>
         <h1>Добро пожаловать в Tap App!</h1>
-        <a href="https://example.com" class="banner">Баннер с встроенной ссылкой на другую страницу</a>
+        <a href="#" class="banner">Баннер с встроенной ссылкой на другую страницу</a>
     </header>
-    
+
     <main>
-        <h2>Очки Total: <span id="score">0</span></h2>
+        <h2>Очки Total: <span id="total-points">0</span></h2>
+        <p id="tap-instruction">Тапай сюда!</p>
 
-        <div class="tap-container">
-            <div class="tap-circle" onclick="incrementScore()">
-                <span class="tap-text">Тапай сюда!</span>
-            </div>
-        </div>
+        <button id="tap-button">Tap me!</button>
+        <button id="shop-button">Магазин</button>
 
-        <button class="shop-btn">Магазин</button>
+        <p>Бесплатные тапы в сутки: <span id="free-taps">50</span> | Таймер восстановления: <span id="timer">00:30</span></p>
+    </main>
 
-        <p class="timer-info">Бесплатные тапы в сутки: <span id="free-taps">50</span> | Таймер восстановления: <span id="timer">00:30</span></p>
-
+    <footer>
         <div class="ads">
             <div class="ad">Реклама 1</div>
             <div class="ad">Реклама 2</div>
             <div class="ad">Реклама 3</div>
         </div>
+        <a href="#" class="terms">Пользовательское соглашение</a>
+    </footer>
 
-        <footer>
-            <p><a href="#">Пользовательское соглашение</a></p>
-        </footer>
-    </main>
-
-    <script>
-        let score = 0;
-        function incrementScore() {
-            score++;
-            document.getElementById('score').innerText = score;
-        }
-    </script>
+    <script src="script.js"></script> <!-- Подключаем JavaScript -->
 </body>
 </html>
