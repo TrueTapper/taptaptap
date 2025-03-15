@@ -41,29 +41,39 @@ a {
 }
 
 /* --- Магазинный контейнер --- */
-/* --- Увеличенный отступ между блоками --- */
-/* --- Отступы между секциями --- */
-.shop-container {
-    margin-top: 50px; /* Увеличил отступ сверху */
+/* --- Контейнер скролла --- */
+.shop-items {
+    display: flex; /* Вернем горизонтальный скролл */
+    flex-wrap: nowrap;
+    overflow-x: auto; 
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px;
 }
 
-/* --- Размеры карточек товаров --- */
+/* --- Карточки товаров --- */
 .shop-item {
-    width: 160px;  /* Уже, чтобы помещалось 2 на мобилке */
-    height: 220px; /* Сделал выше, чтобы текст не ломался */
+    flex: 0 0 auto; /* Чтобы не сжимались */
+    width: 160px;
+    height: 230px;
     background: yellow;
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    flex-shrink: 0;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-/* --- Обрезка длинных заголовков --- */
+/* --- Заголовки товаров (ограничение строк) --- */
 .shop-item h3 {
     font-size: 14px;
     max-width: 90%;
@@ -71,12 +81,12 @@ a {
     text-overflow: ellipsis;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Обрезаем до 2 строк */
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     word-wrap: break-word;
 }
 
-/* --- Обрезка длинных описаний товаров --- */
+/* --- Описание товаров (чтобы не ломалось) --- */
 .shop-item p {
     font-size: 13px;
     white-space: nowrap;
@@ -86,11 +96,15 @@ a {
     margin: 5px auto;
 }
 
-/* --- Медиа-запрос для мобильных устройств (ширина < 600px) --- */
+/* --- Медиа-запрос для мобильных (2 блока на экран) --- */
 @media (max-width: 600px) {
     .shop-item {
-        width: 140px; /* Еще уже для мобильных, чтобы влезало 2 блока */
-        height: 230px; /* Чуть выше, чтобы текст не ломался */
+        width: 140px; /* Уменьшаем ширину, чтобы влезали 2 блока */
+        height: 240px;
+    }
+
+    .shop-items {
+        max-width: 95%;
     }
 }
 
