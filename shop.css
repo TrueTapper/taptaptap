@@ -41,40 +41,48 @@ a {
 }
 
 /* --- Магазинный контейнер --- */
+/* --- Увеличенный отступ между блоками --- */
 .shop-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 20px;
-    max-width: 80%;
-    margin: 0 auto;
-    overflow: hidden; /* Ограничиваем область скролла */
+    margin-top: 40px; /* Увеличиваем расстояние между бонусными блоками и скроллом */
 }
 
-/* --- Карточки товаров --- */
-.shop-items {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto; /* Включаем горизонтальный скролл */
-    scroll-behavior: smooth;
-    white-space: nowrap;
-    width: 100%;
-    max-width: 1000px; /* Даем больше места для скролла */
-    padding: 10px;
-    gap: 15px;
-}
-
+/* --- Настройки размеров блоков товаров --- */
 .shop-item {
+    width: 180px;  /* Сделали уже */
+    height: 200px; /* Сделали выше */
     background: yellow;
-    padding: 20px;
-    margin: 10px;
-    width: 250px;
+    padding: 15px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.2s;
-    flex-shrink: 0; /* Запрещаем сжатие карточек */
+    flex-shrink: 0;
+    overflow: hidden; /* Обрезает лишнее */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* --- Обрезка длинных заголовков --- */
+.shop-item h3 {
+    font-size: 16px;
+    max-width: 90%;
+    margin: 0 auto;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Обрезаем до 2 строк */
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+}
+
+/* --- Обрезка длинных описаний товаров --- */
+.shop-item p {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90%;
+    margin: 5px auto;
 }
 
 /* --- Кнопки скролла --- */
