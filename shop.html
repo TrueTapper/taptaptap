@@ -24,6 +24,15 @@
             margin-bottom: 10px;
         }
 
+        .back-button {
+            color: purple;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
         .bonus-container {
             display: flex;
             justify-content: center;
@@ -69,7 +78,7 @@
             background: #ffcc66;
             padding: 15px;
             width: 180px;
-            height: 240px;
+            height: 280px;
             border-radius: 15px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
@@ -81,17 +90,24 @@
         }
 
         .shop-item .logo {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             background-color: #66c2ff;
             border-radius: 50%;
-            margin: 0 auto;
+            margin: 0 auto 10px auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: bold;
             color: black;
+        }
+
+        .shop-item .info {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .shop-item h3 {
@@ -139,7 +155,7 @@
 <body>
     <header>
         <h1>Магазин</h1>
-        <p style="color: purple; font-weight: bold;">На главную</p>
+        <a href="index.html" class="back-button">На главную</a>
     </header>
 
     <div class="bonus-container">
@@ -152,37 +168,47 @@
         <div class="shop-items" id="shop-items">
             <div class="shop-item">
                 <div class="logo">Логотип</div>
-                <h3>Молочный шоколад</h3>
-                <p class="discount">Скидка: 20%</p>
-                <p class="price">5000</p>
+                <div class="info">
+                    <h3>Молочный шоколад</h3>
+                    <p class="discount">Скидка: 20%</p>
+                    <p class="price">5000</p>
+                </div>
                 <button class="buy-btn">Купить</button>
             </div>
             <div class="shop-item">
                 <div class="logo">Логотип</div>
-                <h3>Игровая клавиатура</h3>
-                <p class="discount">Скидка: 15%</p>
-                <p class="price">4500</p>
+                <div class="info">
+                    <h3>Игровая клавиатура</h3>
+                    <p class="discount">Скидка: 15%</p>
+                    <p class="price">4500</p>
+                </div>
                 <button class="buy-btn">Купить</button>
             </div>
             <div class="shop-item">
                 <div class="logo">Логотип</div>
-                <h3>Кроссовки Nike</h3>
-                <p class="discount">Скидка: 10%</p>
-                <p class="price">4000</p>
+                <div class="info">
+                    <h3>Кроссовки Nike</h3>
+                    <p class="discount">Скидка: 10%</p>
+                    <p class="price">4000</p>
+                </div>
                 <button class="buy-btn">Купить</button>
             </div>
             <div class="shop-item">
                 <div class="logo">Логотип</div>
-                <h3>Премиум подписка</h3>
-                <p class="discount">Скидка: 25%</p>
-                <p class="price">6000</p>
+                <div class="info">
+                    <h3>Премиум подписка</h3>
+                    <p class="discount">Скидка: 25%</p>
+                    <p class="price">6000</p>
+                </div>
                 <button class="buy-btn">Купить</button>
             </div>
             <div class="shop-item">
                 <div class="logo">Логотип</div>
-                <h3>Электрочайник</h3>
-                <p class="discount">Скидка: 30%</p>
-                <p class="price">7000</p>
+                <div class="info">
+                    <h3>Электрочайник</h3>
+                    <p class="discount">Скидка: 30%</p>
+                    <p class="price">7000</p>
+                </div>
                 <button class="buy-btn">Купить</button>
             </div>
     </div>
