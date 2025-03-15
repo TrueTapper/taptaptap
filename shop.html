@@ -11,25 +11,51 @@
         <h1>Магазин</h1>
         <a href="index.html">На главную</a>
     </header>
-
-    <section id="free-points">
+    
+    <section class="bonus-section">
         <h2>Бесплатные баллы</h2>
-        <button>Пригласи друга (1000 очков)</button>
-        <button>Укажи номер телефона (5000 очков)</button>
-        <button>Укажи email (10000 очков)</button>
+        <button class="bonus-btn">Пригласи друга (1000 очков)</button>
+        <button class="bonus-btn">Укажи номер телефона (5000 очков)</button>
+        <button class="bonus-btn">Укажи email (10000 очков)</button>
     </section>
-
-    <section id="store">
+    
+    <section class="shop-section">
         <h2>Магазин</h2>
-        <div id="items-container">
-            <!-- Здесь появятся товары -->
+        <div class="shop-container">
+            <button class="scroll-btn left" onclick="scrollLeft()">&#9665;</button>
+            <div class="shop-items-wrapper">
+                <div class="shop-items">
+                    <div class="shop-item">
+                        <div class="shop-logo"></div>
+                        <h3>Bolt Food</h3>
+                        <p>Скидка: 20%</p>
+                        <p>5000 очков</p>
+                        <button class="buy-btn">Купить</button>
+                    </div>
+                    <div class="shop-item">
+                        <div class="shop-logo"></div>
+                        <h3>Uklon Taxi</h3>
+                        <p>Скидка: 20%</p>
+                        <p>5000 очков</p>
+                        <button class="buy-btn">Купить</button>
+                    </div>
+                    <div class="shop-item">
+                        <div class="shop-logo"></div>
+                        <h3>Forum Cinema</h3>
+                        <p>Скидка: 20%</p>
+                        <p>5000 очков</p>
+                        <button class="buy-btn">Купить</button>
+                    </div>
+                </div>
+            </div>
+            <button class="scroll-btn right" onclick="scrollRight()">&#9655;</button>
         </div>
     </section>
-
+    
     <footer>
         <a href="#">Пользовательское соглашение</a>
     </footer>
-
-    <script src="shop.js" defer></script>
+    
+    <script src="shop.js"></script>
 </body>
 </html>
