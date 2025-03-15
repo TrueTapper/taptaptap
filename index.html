@@ -4,17 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tap App</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Подключение внешнего CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <h1>Добро пожаловать в Tap App!</h1>
-        <a href="https://example.com" target="_blank">Баннер с встроенной ссылкой на другую страницу</a>
+        <a href="https://example.com" class="banner">Баннер с встроенной ссылкой на другую страницу</a>
     </header>
+    
     <main>
-        <p>Очки Total: 0</p>
-        <button class="tap-btn">Tap me!</button>
+        <h2>Очки Total: <span id="score">0</span></h2>
+
+        <div class="tap-container">
+            <div class="tap-circle" onclick="incrementScore()">
+                <span>Изображение на которое нужно тапать</span>
+            </div>
+        </div>
+
         <button class="shop-btn">Магазин</button>
+
+        <p class="timer-info">Бесплатные тапы в сутки: <span id="free-taps">50</span> | Таймер восстановления: <span id="timer">00:30</span></p>
 
         <div class="ads">
             <div class="ad">Реклама 1</div>
@@ -23,10 +32,17 @@
         </div>
 
         <footer>
-            <p><a href="https://example.com/terms">Пользовательское соглашение</a></p>
+            <p><a href="#">Пользовательское соглашение</a></p>
         </footer>
     </main>
+
+    <script>
+        let score = 0;
+        function incrementScore() {
+            score++;
+            document.getElementById('score').innerText = score;
+        }
+    </script>
 </body>
 </html>
-
 
