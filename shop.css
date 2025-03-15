@@ -54,10 +54,21 @@ a {
 }
 
 /* --- Карточки товаров --- */
+.shop-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+    overflow: hidden; /* Ограничиваем область скролла */
+    max-width: 1000px;
+}
+
+/* --- Карточки товаров --- */
 .shop-items {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: scroll; /* Включаем горизонтальный скролл */
+    overflow-x: auto; /* Исправляем на auto */
     scroll-behavior: smooth;
     white-space: nowrap;
     width: 100%;
@@ -75,7 +86,7 @@ a {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.2s;
-    flex-shrink: 0; /* Чтобы карточки не сжимались */
+    flex-shrink: 0;
 }
 
 .shop-item:hover {
@@ -98,11 +109,11 @@ a {
 }
 
 .left {
-    left: 10px; /* Отступ от левого края */
+    left: 10px;
 }
 
 .right {
-    right: 10px; /* Отступ от правого края */
+    right: 10px;
 }
 
 /* --- Верхний блок с бонусами --- */
