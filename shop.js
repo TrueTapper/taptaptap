@@ -78,17 +78,17 @@ button {
     align-items: center;
     justify-content: center;
 }
-ddocument.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     const shopItems = document.getElementById("shop-items");
     const leftButton = document.querySelector(".left");
     const rightButton = document.querySelector(".right");
-    const scrollAmount = 300; // Прокрутка на один шаг
+    const scrollAmount = 300; // Шаг скролла
 
     leftButton.addEventListener("click", function () {
-        shopItems.scrollBy() -= scrollAmount;
+        shopItems.scrollBy({ left: -scrollAmount, behavior: "smooth" });
     });
 
     rightButton.addEventListener("click", function () {
-        shopItems.scrollBy() += scrollAmount;
+        shopItems.scrollBy({ left: scrollAmount, behavior: "smooth" });
     });
 });
