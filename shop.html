@@ -12,16 +12,16 @@
         <a href="index.html">На главную</a>
     </header>
 
-    <!-- Блок бесплатных баллов -->
-    <div class="bonus-container">
-        <div class="bonus-item">Пригласи друга (1000 очков)</div>
-        <div class="bonus-item">Укажи номер телефона (5000 очков)</div>
-        <div class="bonus-item">Укажи email (10000 очков)</div>
-    </div>
+    <!-- Верхние блоки -->
+    <section class="bonus-container">
+        <button class="bonus-button">Пригласи друга (1000 очков)</button>
+        <button class="bonus-button">Укажи номер телефона (5000 очков)</button>
+        <button class="bonus-button">Укажи email (10000 очков)</button>
+    </section>
 
     <!-- Магазин -->
     <section class="shop-container">
-        <button class="scroll-btn left" onclick="scrollLeft()">◄</button>
+        <button class="scroll-btn left">◄</button>
         <div class="shop-items" id="shop-items">
             <div class="shop-item">
                 <h3>Bolt Food</h3>
@@ -54,7 +54,14 @@
                 <button class="buy-btn">Купить</button>
             </div>
         </div>
-        <button class="scroll-btn right" onclick="scrollRight()">►</button>
+        <button class="scroll-btn right">►</button>
+    </section>
+
+    <!-- Рекламные блоки -->
+    <section class="ad-container">
+        <div class="ad-block">Реклама 1</div>
+        <div class="ad-block">Реклама 2</div>
+        <div class="ad-block">Реклама 3</div>
     </section>
 
     <script src="shop.js"></script>
