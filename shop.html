@@ -4,55 +4,186 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Магазин</title>
-    <link rel="stylesheet" href="shop.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        header {
+            background-color: yellow;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        .bonus-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px;
+        }
+
+        .bonus-button {
+            background-color: yellow;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            width: 250px;
+            text-align: center;
+        }
+
+        .shop-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 20px;
+            overflow: hidden;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .shop-items {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            white-space: nowrap;
+            width: 100%;
+            max-width: 800px;
+            padding: 10px;
+            gap: 15px;
+        }
+
+        .shop-item {
+            background: #ffcc66;
+            padding: 15px;
+            width: 180px;
+            height: 220px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            flex-shrink: 0;
+            border: 2px solid black;
+        }
+
+        .shop-item .logo {
+            width: 60px;
+            height: 60px;
+            background-color: #66c2ff;
+            border-radius: 50%;
+            margin: 0 auto 10px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .shop-item h3 {
+            font-size: 14px;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 160px;
+        }
+
+        .shop-item .discount {
+            margin-top: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .shop-item .price {
+            margin-top: 5px;
+            font-size: 14px;
+        }
+
+        .buy-btn {
+            margin-top: 10px;
+            padding: 5px 10px;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+
+        .ad-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .ad-block {
+            background-color: yellow;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            width: 250px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Магазин</h1>
-        <a href="index.html">На главную</a>
+        <p style="color: purple; font-weight: bold;">На главную</p>
     </header>
 
-    <!-- Верхние блоки -->
-    <section class="bonus-container">
+    <div class="bonus-container">
         <button class="bonus-button">Пригласи друга (1000 очков)</button>
         <button class="bonus-button">Укажи номер телефона (5000 очков)</button>
         <button class="bonus-button">Укажи email (10000 очков)</button>
-    </section>
+    </div>
 
-    <!-- Магазин -->
-  <section class="shop-container">
-    <button class="scroll-btn left" onclick="scrollLeft()">◄</button>
-    <div class="shop-items" id="shop-items">
-        <div class="shop-item">
-            <h3>Товар 1</h3>
-            <p>Скидка: 20%</p>
-            <p>Цена: 5000 очков</p>
-            <button class="buy-btn">Купить</button>
-        </div>
-        <div class="shop-item">
-            <h3>Товар 2</h3>
-            <p>Скидка: 20%</p>
-            <p>Цена: 5000 очков</p>
-            <button class="buy-btn">Купить</button>
-        </div>
-        <div class="shop-item">
-            <h3>Товар 3</h3>
-            <p>Скидка: 20%</p>
-            <p>Цена: 5000 очков</p>
-            <button class="buy-btn">Купить</button>
-        </div>
-        <div class="shop-item">
-            <h3>Товар 4</h3>
-            <p>Скидка: 20%</p>
-            <p>Цена: 5000 очков</p>
-            <button class="buy-btn">Купить</button>
-        </div>
-        <div class="shop-item">
-            <h3>Товар 5</h3>
-            <p>Скидка: 20%</p>
-            <p>Цена: 5000 очков</p>
-            <button class="buy-btn">Купить</button>
-        </div>
+    <section class="shop-container">
+        <div class="shop-items" id="shop-items">
+            <div class="shop-item">
+                <div class="logo">Логотип</div>
+                <h3>Молочный шоколад</h3>
+                <p class="discount">Скидка: 20%</p>
+                <p class="price">5000</p>
+                <button class="buy-btn">Купить</button>
+            </div>
+            <div class="shop-item">
+                <div class="logo">Логотип</div>
+                <h3>Игровая клавиатура</h3>
+                <p class="discount">Скидка: 15%</p>
+                <p class="price">4500</p>
+                <button class="buy-btn">Купить</button>
+            </div>
+            <div class="shop-item">
+                <div class="logo">Логотип</div>
+                <h3>Кроссовки Nike</h3>
+                <p class="discount">Скидка: 10%</p>
+                <p class="price">4000</p>
+                <button class="buy-btn">Купить</button>
+            </div>
+            <div class="shop-item">
+                <div class="logo">Логотип</div>
+                <h3>Премиум подписка</h3>
+                <p class="discount">Скидка: 25%</p>
+                <p class="price">6000</p>
+                <button class="buy-btn">Купить</button>
+            </div>
+            <div class="shop-item">
+                <div class="logo">Логотип</div>
+                <h3>Электрочайник</h3>
+                <p class="discount">Скидка: 30%</p>
+                <p class="price">7000</p>
+                <button class="buy-btn">Купить</button>
+            </div>
     </div>
     <button class="scroll-btn right" onclick="scrollRight()">►</button>
 </section>
