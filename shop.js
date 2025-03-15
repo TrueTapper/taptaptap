@@ -92,3 +92,4 @@ document.addEventListener("DOMContentLoaded", function () {
         shopItems.scrollBy({ left: scrollAmount, behavior: "smooth" });
     });
 });
+
