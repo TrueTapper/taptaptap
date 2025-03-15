@@ -182,6 +182,11 @@ a {
     max-width: 80%;
     text-align: center;
 }
+.popup-content {
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
 
 /* Затемняющий фон */
 .popup-overlay {
