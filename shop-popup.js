@@ -17,49 +17,44 @@ document.addEventListener("DOMContentLoaded", function () {
     popup.style.display = "none";
     overlay.style.display = "none";
 
-    buyButtons.forEach(button => {
-        button.addEventListener("click", function () {
-            const product = button.closest(".shop-item"); // Получаем конкретный товар
-            const title = product.querySelector("h3").textContent;
-            const discount = product.querySelector(".discount").textContent;
-            const price = product.querySelector(".price").textContent;
-            const promoCode = `CODE-${title.toUpperCase().replace(" ", "-")}`; // Генерируем уникальный код
+   buyButtons.forEach(button => {
+    button.addEventListener("click", function () {
+        console.log("Открываем попап");
 
-            console.log("Открываем попап для:", title);
+        // ✅ Получаем данные конкретного товара
+        const item = button.closest(".shop-item");
+        const title = item.querySelector("h3").textContent;
+        const discount = item.querySelector(".discount").textContent;
+        const price = item.querySelector(".price").textContent;
 
-            // ✅ Устанавливаем данные в попап
-            popupTitle.textContent = title;
-            popupDescription.textContent = `${discount} - Цена: ${price} очков`;
-            codeText.dataset.code = promoCode;
+        // ✅ Заполняем попап данными
+        document.querySelector(".popup-title").textContent = title;
+        document.querySelector(".popup-description").innerHTML = `${discount} - Цена: ${price} очков`;
 
-            if (purchasedProducts[title]) {
-                getCodeButton.style.display = "none";
-                codeText.style.display = "block";
-                codeText.textContent = "COPY CODE";
-            } else {
-                getCodeButton.style.display = "block";
-                getCodeButton.textContent = "Получить код";
-                codeText.style.display = "none";
-            }
+        // ✅ Применяем стили только при открытии
+        popup.style.position = "fixed";
+        popup.style.top = "50%";
+        popup.style.left = "50%";
+        popup.style.transform = "translate(-50%, -50%)";
+        popup.style.zIndex = "1001";
+        popup.style.width = "50%";
+        popup.style.maxWidth = "400px";
+        popup.style.minHeight = "350px";
+        popup.style.padding = "40px 20px";
+        popup.style.background = "white";
+        popup.style.boxShadow = "0 5px 15px rgba(0, 0, 0, 0.3)";
 
-            // ✅ Восстанавливаем стили попапа (фиксируем его в центре)
-            popup.style.position = "fixed";
-            popup.style.top = "50%";
-            popup.style.left = "50%";
-            popup.style.transform = "translate(-50%, -50%)";
-            popup.style.zIndex = "1001";
-            popup.style.width = "50%";
-            popup.style.maxWidth = "400px";
-            popup.style.minHeight = "350px";
-            popup.style.padding = "40px 20px";
-            popup.style.background = "white";
-            popup.style.boxShadow = "0 5px 15px rgba(0, 0, 0, 0.3)";
+        // ✅ Показываем попап
+        popup.style.display = "block";
+        overlay.style.display = "block";
+        setTimeout(() => popup.classList.add("show"), 10);
 
-            popup.style.display = "block";
-            overlay.style.display = "block";
-            setTimeout(() => popup.classList.add("show"), 10);
-        });
+        // ✅ Центрируем кнопку
+        const promoButton = document.querySelector(".popup-get-code");
+        promoButton.style.marginTop = "auto"; // Отправляем вниз
+        promoButton.style.alignSelf = "center"; // Центрируем
     });
+});
 
     // ✅ Обработчик "Получить код"
     getCodeButton.addEventListener("click", function () {
