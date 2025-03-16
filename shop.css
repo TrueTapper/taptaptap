@@ -172,29 +172,17 @@ a {
     position: fixed !important;
     top: 50% !important;
     left: 50% !important;
-    transform: translate(-50%, -55%) !important; /* Чуть выше для анимации */
-    background: white !important;
-    padding: 30px !important; /* Увеличенные отступы */
-    border-radius: 10px !important;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
-    display: none !important;
-    z-index: 1001 !important;
-    
-    width: 80% !important; /* Ширина 80% от экрана */
-    max-width: 500px !important; /* Но не больше 500px */
-    min-height: 250px !important; /* Минимальная высота */
-    text-align: center !important;
-
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translate(-50%, -50%) !important;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 1001;
+    max-width: 80%;
+    width: 400px;
+    text-align: center;
 }
-
-/* Анимация появления */
-.popup.show {
-    opacity: 1 !important;
-    transform: translate(-50%, -50%) !important; /* Центрируем после появления */
-}
-
 
 .popup-content {
     padding: 10px;
