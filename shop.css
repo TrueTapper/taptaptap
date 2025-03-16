@@ -179,21 +179,23 @@ a {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     display: none;
     z-index: 1001;
-    width: 50%; /* Попап будет 50% ширины экрана */
-    max-width: 400px; /* Ограничиваем максимальную ширину */
-    min-height: 350px; /* Минимальная высота */
+    width: 50%;
+    max-width: 400px;
+    min-height: 350px;
 }
 
+/* Контент внутри попапа */
 .popup-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Логотип и текст прижаты вверх */
+    justify-content: flex-start;
     height: 100%;
 }
 
+/* Кнопка промокода внизу */
 .popup-code {
-    margin-top: auto; /* Отправляем кнопку вниз */
+    margin-top: auto; /* Опускаем кнопку вниз */
     padding: 10px 20px;
     border: 1px solid black;
     background: #f2f2f2;
@@ -201,14 +203,16 @@ a {
     cursor: pointer;
 }
 
-/* Показываем попап с анимацией */
+/* Анимация появления */
 .popup.show {
     opacity: 1;
     transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+/* Затемняющий фон */
 .popup-overlay {
-    position: fixed !important;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
