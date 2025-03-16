@@ -6,17 +6,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeBtn = document.querySelector(".popup-close");
     const buyButtons = document.querySelectorAll(".buy-btn");
 
+    // ✅ Скрываем попап при загрузке страницы
+    popup.style.display = "none";
+    overlay.style.display = "none";
+
     buyButtons.forEach(button => {
         button.addEventListener("click", function () {
             console.log("Открываем попап");
 
-            // ✅ Устанавливаем стили при открытии попапа
+            // ✅ Применяем стили только при открытии
             popup.style.position = "fixed";
             popup.style.top = "50%";
             popup.style.left = "50%";
             popup.style.transform = "translate(-50%, -50%)";
             popup.style.zIndex = "1001";
-            popup.style.width = "50%"; 
+            popup.style.width = "50%";
             popup.style.maxWidth = "400px";
             popup.style.minHeight = "350px";
             popup.style.padding = "40px 20px";
