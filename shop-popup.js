@@ -90,20 +90,24 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // ✅ Копирование кода в буфер
-    codeText.addEventListener("click", function () {
-        if (codeText.textContent === "COPY CODE") {
-            const promoCode = codeText.dataset.code;
-            navigator.clipboard.writeText(promoCode).then(() => {
-                console.log("Промо-код скопирован:", promoCode);
-                codeText.textContent = "Скопировано!";
-                setTimeout(() => {
-                    codeText.textContent = "COPY CODE";
-                }, 2000);
-            }).catch(err => {
-                console.error("Ошибка копирования:", err);
-            });
-        }
+   // ✅ Копирование промо-кода
+codeText.addEventListener("click", function () {
+    const promoCode = codeText.getAttribute("data-promo"); // Берём промо-код
+    if (!promoCode || promoCode === "undefined") {
+        console.error("Ошибка: код не найден!");
+        return;
+    }
+
+    navigator.clipboard.writeText(promoCode).then(() => {
+        console.log("Промо-код скопирован:", promoCode);
+        codeText.textContent = "Скопировано!";
+        setTimeout(() => {
+            codeText.textContent = "COPY CODE";
+        }, 2000);
+    }).catch(err => {
+        console.error("Ошибка копирования:", err);
+    });
+
     });
 
     // ✅ Закрытие попапа
