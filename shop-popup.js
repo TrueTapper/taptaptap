@@ -10,23 +10,24 @@ document.addEventListener("DOMContentLoaded", function () {
     popup.style.display = "none";
     overlay.style.display = "none";
 
-    // Функция для плавного открытия попапа
     function openPopup() {
         console.log("Открываем попап");
-        popup.style.display = "block";
+        popup.style.display = "block"; 
         overlay.style.display = "block";
-        setTimeout(() => popup.classList.add("show"), 10); // Добавляем класс после небольшого задержки
+        setTimeout(() => {
+            popup.classList.add("show");
+        }, 10);
     }
 
-    // Функция для плавного закрытия попапа
     function closePopup() {
         console.log("Закрываем попап");
         popup.classList.remove("show");
-        setTimeout(() => popup.style.display = "none", 300); // Ждем анимацию перед скрытием
-        setTimeout(() => overlay.style.display = "none", 300);
+        setTimeout(() => {
+            popup.style.display = "none";
+            overlay.style.display = "none";
+        }, 300); // Даем время на анимацию
     }
 
-    // Назначаем обработчики событий
     buyButtons.forEach(button => {
         button.addEventListener("click", openPopup);
     });
