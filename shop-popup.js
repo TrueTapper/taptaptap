@@ -71,5 +71,18 @@ document.addEventListener("DOMContentLoaded", function () {
         // ✅ Показываем текст "COPY CODE"
         codeText.style.display = "block";
     });
+        // ✅ Копирование промо-кода при нажатии
+    codeText.addEventListener("click", function () {
+        const promoCode = "promocode123"; // Здесь можешь подставить динамический код
+        navigator.clipboard.writeText(promoCode).then(() => {
+            console.log("Промо-код скопирован:", promoCode);
+            codeText.textContent = "Скопировано!"; // Меняем текст после копирования
+            setTimeout(() => {
+                codeText.textContent = "COPY CODE"; // Возвращаем обратно через 2 сек
+            }, 2000);
+        }).catch(err => {
+            console.error("Ошибка копирования:", err);
+        });
+    });
 });
 
