@@ -6,35 +6,30 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeBtn = document.querySelector(".popup-close");
     const buyButtons = document.querySelectorAll(".buy-btn");
 
-    // Устанавливаем правильное отображение попапа
-    popup.style.display = "none";
-    overlay.style.display = "none";
-
-    // Добавляем обработчики для кнопок "Купить"
     buyButtons.forEach(button => {
         button.addEventListener("click", function () {
             console.log("Открываем попап");
             popup.style.display = "block";
+            setTimeout(() => popup.classList.add("show"), 10); // Анимация появления
             overlay.style.display = "block";
-            setTimeout(() => popup.classList.add("show"), 10); // Плавное появление
         });
     });
 
-    // Закрытие попапа по нажатию на крестик
     closeBtn.addEventListener("click", function () {
         console.log("Закрываем попап");
         popup.classList.remove("show");
-        setTimeout(() => popup.style.display = "none", 300);
+        setTimeout(() => popup.style.display = "none", 300); // Ждем анимацию перед скрытием
         overlay.style.display = "none";
     });
 
-    // Закрытие попапа при нажатии на затемнённый фон
     overlay.addEventListener("click", function () {
         console.log("Закрываем попап (overlay)");
         popup.classList.remove("show");
         setTimeout(() => popup.style.display = "none", 300);
         overlay.style.display = "none";
     });
+});
+
 
     // Настраиваем внутреннее содержание попапа
     const popupContent = document.querySelector(".popup-content");
