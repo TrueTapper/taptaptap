@@ -6,95 +6,82 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeBtn = document.querySelector(".popup-close");
     const buyButtons = document.querySelectorAll(".buy-btn");
 
-    const popupTitle = document.querySelector(".popup-title");
-    const popupDescription = document.querySelector(".popup-description");
-    const promoButton = document.querySelector(".popup-get-code");
-    const codeText = document.querySelector(".popup-code-text");
-
-    let purchasedProducts = {}; // Храним купленные товары
-
     // ✅ Скрываем попап при загрузке страницы
     popup.style.display = "none";
     overlay.style.display = "none";
 
-    // ✅ Обрабатываем клик на кнопки "Купить"
     buyButtons.forEach(button => {
         button.addEventListener("click", function () {
-            const product = button.closest(".shop-item"); // Получаем товар
-            const title = product.dataset.title;
-            const discount = product.dataset.discount;
-            const price = product.dataset.price;
-            const promoCode = product.dataset.code;
+            console.log("Открываем попап");
 
-            console.log("Открываем попап для:", title);
-
-            popupTitle.textContent = title;
-            popupDescription.textContent = `${discount} - Цена: ${price} очков`;
-
-            if (purchasedProducts[title]) {
-                promoButton.style.display = "none"; // Убираем кнопку "Получить код"
-                codeText.style.display = "block"; // Показываем "COPY CODE"
-                codeText.textContent = "COPY CODE";
-                codeText.dataset.code = promoCode;
-            } else {
-                promoButton.style.display = "block";
-                promoButton.textContent = "Получить код";
-                codeText.style.display = "none";
-            }
+            // ✅ Применяем стили только при открытии
+            popup.style.position = "fixed";
+            popup.style.top = "50%";
+            popup.style.left = "50%";
+            popup.style.transform = "translate(-50%, -50%)";
+            popup.style.zIndex = "1001";
+            popup.style.width = "50%";
+            popup.style.maxWidth = "400px";
+            popup.style.minHeight = "350px";
+            popup.style.padding = "40px 20px";
+            popup.style.background = "white";
+            popup.style.boxShadow = "0 5px 15px rgba(0, 0, 0, 0.3)";
 
             popup.style.display = "block";
             overlay.style.display = "block";
-            setTimeout(() => popup.classList.add("show"), 10);
+            setTimeout(() => popup.classList.add("show"), 10); // Анимация появления
+
+            // Настраиваем внутренний контент
+            const popupContent = document.querySelector(".popup-content");
+            popupContent.style.display = "flex";
+            popupContent.style.flexDirection = "column";
+            popupContent.style.alignItems = "center";
+            popupContent.style.justifyContent = "flex-start";
+            popupContent.style.height = "100%";
+
+            // Двигаем кнопку промокода вниз
+            const promoButton = document.querySelector(".popup-code");
+            promoButton.style.marginTop = "auto";
         });
     });
 
-    // ✅ Обработчик нажатия "Получить код"
-    promoButton.addEventListener("click", function () {
-        const productTitle = popupTitle.textContent;
-        if (!purchasedProducts[productTitle]) {
-            console.log("Покупка товара:", productTitle);
-            purchasedProducts[productTitle] = true;
-            promoButton.style.display = "none"; // Скрываем кнопку покупки
-            codeText.style.display = "block"; // Показываем код
-            codeText.textContent = "COPY CODE";
-
-            // Делаем кнопку "Купить" неактивной для конкретного товара
-            document.querySelectorAll(".shop-item").forEach(item => {
-                if (item.dataset.title === productTitle) {
-                    const btn = item.querySelector(".buy-btn");
-                    btn.textContent = "Куплено";
-                    btn.disabled = true;
-                }
-            });
-        }
-    });
-
-    // ✅ Копирование кода в буфер
-    codeText.addEventListener("click", function () {
-        if (codeText.textContent === "COPY CODE") {
-            const promoCode = codeText.dataset.code;
-            navigator.clipboard.writeText(promoCode).then(() => {
-                console.log("Промо-код скопирован:", promoCode);
-                codeText.textContent = "Скопировано!";
-                setTimeout(() => {
-                    codeText.textContent = "COPY CODE";
-                }, 2000);
-            }).catch(err => {
-                console.error("Ошибка копирования:", err);
-            });
-        }
-    });
-
-    // ✅ Закрытие попапа
     closeBtn.addEventListener("click", function () {
+        console.log("Закрываем попап");
         popup.classList.remove("show");
         setTimeout(() => popup.style.display = "none", 300);
         overlay.style.display = "none";
     });
 
     overlay.addEventListener("click", function () {
+        console.log("Закрываем попап (overlay)");
         popup.classList.remove("show");
         setTimeout(() => popup.style.display = "none", 300);
         overlay.style.display = "none";
+    });
+        // ✅ Обработчик кнопки "Получить код"
+    const getCodeButton = document.querySelector(".popup-get-code");
+    const codeText = document.querySelector(".popup-code-text");
+
+    getCodeButton.addEventListener("click", function () {
+        console.log("Кнопка получения кода нажата");
+
+        // ✅ Скрываем кнопку
+        getCodeButton.style.display = "none";
+
+        // ✅ Показываем текст "COPY CODE"
+        codeText.style.display = "block";
+    });
+        // ✅ Копирование промо-кода при нажатии
+    codeText.addEventListener("click", function () {
+        const promoCode = "promocode123"; // Здесь можешь подставить динамический код
+        navigator.clipboard.writeText(promoCode).then(() => {
+            console.log("Промо-код скопирован:", promoCode);
+            codeText.textContent = "Скопировано!"; // Меняем текст после копирования
+            setTimeout(() => {
+                codeText.textContent = "COPY CODE"; // Возвращаем обратно через 2 сек
+            }, 2000);
+        }).catch(err => {
+            console.error("Ошибка копирования:", err);
+        });
     });
 });
