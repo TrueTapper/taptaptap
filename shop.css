@@ -169,32 +169,42 @@ a {
     text-align: center;
 }
 .popup {
-    position: fixed !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: white;
-    padding: 30px;
+    padding: 40px 20px; /* Увеличенный padding сверху и снизу */
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    width: 80% !important;
-    max-width: 500px !important;
-    min-height: 250px !important;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: none;
     z-index: 1001;
-    display: none !important;
+    width: 50%; /* Попап будет 50% ширины экрана */
+    max-width: 400px; /* Ограничиваем максимальную ширину */
+    min-height: 350px; /* Минимальная высота */
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Логотип и текст прижаты вверх */
+    height: 100%;
+}
+
+.popup-code {
+    margin-top: auto; /* Отправляем кнопку вниз */
+    padding: 10px 20px;
+    border: 1px solid black;
+    background: #f2f2f2;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 /* Показываем попап с анимацией */
 .popup.show {
     opacity: 1;
     transform: translate(-50%, -50%);
-}
-
-.popup-content {
-    padding: 10px;
 }
 
 .popup-overlay {
