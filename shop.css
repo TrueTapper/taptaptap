@@ -174,14 +174,23 @@ a {
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
     background: white;
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    display: none;
-    z-index: 1001;
-    max-width: 80%;
-    width: 400px;
+    width: 80% !important;
+    max-width: 500px !important;
+    min-height: 250px !important;
     text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1001;
+    display: none !important;
+}
+
+/* Показываем попап с анимацией */
+.popup.show {
+    opacity: 1;
+    transform: translate(-50%, -50%);
 }
 
 .popup-content {
