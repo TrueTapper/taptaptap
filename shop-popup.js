@@ -3,6 +3,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const popup = document.getElementById("popup");
     const overlay = document.querySelector(".popup-overlay");
+
+    // Скрываем попап при загрузке страницы
+    popup.style.display = "none";
+    overlay.style.display = "none";
+
     const closeBtn = document.querySelector(".popup-close");
     const buyButtons = document.querySelectorAll(".buy-btn");
 
@@ -26,4 +31,5 @@ document.addEventListener("DOMContentLoaded", function () {
         overlay.style.display = "none";
     });
 });
+
 
