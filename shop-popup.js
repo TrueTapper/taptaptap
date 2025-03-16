@@ -15,23 +15,17 @@ buyButtons.forEach(button => {
     button.addEventListener("click", function () {
         console.log("Открываем попап");
         popup.style.display = "block";
-        popup.style.position = "fixed";
-        popup.style.top = "50%";
-        popup.style.left = "50%";
-        popup.style.transform = "translate(-50%, -50%)";
-        popup.style.zIndex = "1001";
+        setTimeout(() => popup.classList.add("show"), 10); // Добавляем анимацию
         overlay.style.display = "block";
-        overlay.style.zIndex = "1000";
-
-        console.log("Текущие стили попапа:", popup.style.cssText);
     });
 });
 
-    closeBtn.addEventListener("click", function () {
-        console.log("Закрываем попап");
-        popup.style.display = "none";
-        overlay.style.display = "none";
-    });
+closeBtn.addEventListener("click", function () {
+    console.log("Закрываем попап");
+    popup.classList.remove("show");
+    setTimeout(() => popup.style.display = "none", 300); // Ждем анимацию перед скрытием
+    overlay.style.display = "none";
+});
 
     overlay.addEventListener("click", function () {
         console.log("Закрываем попап (overlay)");
