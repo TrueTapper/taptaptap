@@ -73,12 +73,30 @@ getCodeButton.style.alignSelf = "center"; // Если flex-контейнер
     });
 });
 
-    // ✅ Обработчик "Получить код"
     getCodeButton.addEventListener("click", function () {
-        const productTitle = popupTitle.textContent;
-        if (!purchasedProducts[productTitle]) {
-            console.log("Покупка товара:", productTitle);
-            purchasedProducts[productTitle] = true;
+    const productTitle = popupTitle.textContent;
+    
+    let item = null;
+    document.querySelectorAll(".shop-item").forEach(shopItem => {
+        if (shopItem.querySelector("h3").textContent.trim() === productTitle.trim()) {
+            item = shopItem;
+        }
+    });
+
+    if (!item) {
+        console.error("Ошибка: не найден товар с таким названием.");
+        return;
+    }
+
+    const price = parseInt(item.querySelector(".price").textContent);
+
+    if (userBalance >= price) {
+        console.log(`Покупка товара: ${productTitle} за ${price} очков`);
+
+        // ✅ Списываем очки
+        userBalance -= price;
+        localStorage.setItem("userBalance", userBalance); // Сохраняем в localStorage
+        updateBalanceDisplay(); // Обновляем отображение
 
             getCodeButton.style.display = "none"; // Скрываем кнопку
             codeText.style.display = "block"; // Показываем "COPY CODE"
