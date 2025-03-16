@@ -58,5 +58,18 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => popup.style.display = "none", 300);
         overlay.style.display = "none";
     });
+        // ✅ Обработчик кнопки "Получить код"
+    const getCodeButton = document.querySelector(".popup-get-code");
+    const codeText = document.querySelector(".popup-code-text");
+
+    getCodeButton.addEventListener("click", function () {
+        console.log("Кнопка получения кода нажата");
+
+        // ✅ Скрываем кнопку
+        getCodeButton.style.display = "none";
+
+        // ✅ Показываем текст "COPY CODE"
+        codeText.style.display = "block";
+    });
 });
 
