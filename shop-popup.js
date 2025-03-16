@@ -26,10 +26,23 @@ document.addEventListener("DOMContentLoaded", function () {
         const title = item.querySelector("h3").textContent;
         const discount = item.querySelector(".discount").textContent;
         const price = item.querySelector(".price").textContent;
+        
+        // ✅ Генерируем уникальный промо-код для товара (или берем его из данных)
+        const promoCode = `PROMO-${title.replace(/\s/g, "").toUpperCase()}`;
 
-        // ✅ Заполняем попап данными
+        // ✅ Заполняем попап новыми данными
         document.querySelector(".popup-title").textContent = title;
         document.querySelector(".popup-description").innerHTML = `${discount} - Цена: ${price} очков`;
+
+        // ✅ Сбрасываем отображение кнопки "Получить код"
+        const getCodeButton = document.querySelector(".popup-get-code");
+        const codeText = document.querySelector(".popup-code-text");
+
+        getCodeButton.style.display = "block"; // Показываем кнопку
+        codeText.style.display = "none"; // Прячем текст "COPY CODE"
+
+        // ✅ Сохраняем код в data-атрибут, чтобы потом использовать его при копировании
+        codeText.setAttribute("data-promo", promoCode);
 
         // ✅ Применяем стили только при открытии
         popup.style.position = "fixed";
@@ -49,10 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
         overlay.style.display = "block";
         setTimeout(() => popup.classList.add("show"), 10);
 
-        // ✅ Центрируем кнопку
-        const promoButton = document.querySelector(".popup-get-code");
-        promoButton.style.marginTop = "auto"; // Отправляем вниз
-        promoButton.style.alignSelf = "center"; // Центрируем
+        // ✅ Центрируем кнопку "Получить код"
+        getCodeButton.style.marginTop = "auto";
+        getCodeButton.style.alignSelf = "center";
     });
 });
 
