@@ -73,24 +73,35 @@ getCodeButton.style.alignSelf = "center"; // Если flex-контейнер
     });
 });
 
-    // ✅ Обработчик "Получить код"
     getCodeButton.addEventListener("click", function () {
-        const productTitle = popupTitle.textContent;
-        if (!purchasedProducts[productTitle]) {
-            console.log("Покупка товара:", productTitle);
-            purchasedProducts[productTitle] = true;
+    const productTitle = popupTitle.textContent;
+    const item = document.querySelector(`.shop-item h3:contains("${productTitle}")`).closest(".shop-item");
+    const price = parseInt(item.querySelector(".price").textContent);
 
-            getCodeButton.style.display = "none"; // Скрываем кнопку
-            codeText.style.display = "block"; // Показываем "COPY CODE"
-            codeText.textContent = "COPY CODE";
+    if (userBalance >= price) {
+        console.log(`Покупка товара: ${productTitle} за ${price} очков`);
 
-            // Делаем кнопку "Купить" неактивной для товара
-            document.querySelectorAll(".shop-item").forEach(item => {
-                if (item.querySelector("h3").textContent === productTitle) {
-                    const btn = item.querySelector(".buy-btn");
-                    btn.textContent = "Куплено";
-                    btn.disabled = true;
-                }
+        // ✅ Списываем очки
+        userBalance -= price;
+        localStorage.setItem("userBalance", userBalance); // Сохраняем в localStorage
+        updateBalanceDisplay(); // Обновляем отображение
+
+        // ✅ Скрываем кнопку "Получить код", показываем "COPY CODE"
+        getCodeButton.style.display = "none";
+        codeText.style.display = "block";
+        codeText.textContent = "COPY CODE";
+
+        // ✅ Делаем кнопку "Купить" неактивной
+        item.querySelector(".buy-btn").textContent = "Куплено";
+        item.querySelector(".buy-btn").disabled = true;
+
+        // ✅ Запоминаем, что товар куплен
+        purchasedProducts[productTitle] = true;
+        localStorage.setItem("purchasedProducts", JSON.stringify(purchasedProducts));
+
+    } else {
+        alert("Недостаточно очков!");
+    }
             });
         }
     });
