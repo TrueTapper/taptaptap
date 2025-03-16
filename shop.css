@@ -169,10 +169,10 @@ a {
     text-align: center;
 }
 .popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
     background: white;
     padding: 20px;
     border-radius: 10px;
@@ -180,29 +180,23 @@ a {
     display: none;
     z-index: 1001;
     max-width: 80%;
+    width: 400px;
     text-align: center;
 }
 
+.popup-content {
+    padding: 10px;
+}
+
 .popup-overlay {
-    position: fixed;
+    position: fixed !important;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    display: none; /* ВАЖНО: Затемнение скрыто */
+    display: none;
     z-index: 1000;
-}
-.popup-content {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    max-width: 90%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 /* Кнопка закрытия */
@@ -213,4 +207,3 @@ a {
     font-size: 24px;
     cursor: pointer;
 }
-
