@@ -34,12 +34,17 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector(".popup-title").textContent = title;
         document.querySelector(".popup-description").innerHTML = `${discount} - Цена: ${price} очков`;
 
-        // ✅ Сбрасываем отображение кнопки "Получить код"
-        const getCodeButton = document.querySelector(".popup-get-code");
-        const codeText = document.querySelector(".popup-code-text");
+       // ✅ Сбрасываем отображение кнопки "Получить код"
+const getCodeButton = document.querySelector(".popup-get-code");
+const codeText = document.querySelector(".popup-code-text");
 
-        getCodeButton.style.display = "block"; // Показываем кнопку
-        codeText.style.display = "none"; // Прячем текст "COPY CODE"
+getCodeButton.style.display = "block"; // Показываем кнопку
+codeText.style.display = "none"; // Прячем текст "COPY CODE"
+
+// ✅ Центрируем кнопку "Получить код"
+getCodeButton.style.margin = "20px auto"; // Центрируем и добавляем отступы сверху/снизу
+getCodeButton.style.textAlign = "center";
+getCodeButton.style.alignSelf = "center"; // Если flex-контейнер
 
         // ✅ Сохраняем код в data-атрибут, чтобы потом использовать его при копировании
         codeText.setAttribute("data-promo", promoCode);
